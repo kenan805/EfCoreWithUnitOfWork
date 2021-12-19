@@ -33,7 +33,6 @@ namespace EfCoreWithUnitOfWork
             InitializeComponent();
             _unitOfWork = new UnitOfWork(new ProductContext());
             dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().Include(c => c.Products).ToList();
-            //dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
 
         }
 
