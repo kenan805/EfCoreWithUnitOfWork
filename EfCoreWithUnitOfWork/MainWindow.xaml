@@ -37,7 +37,7 @@
                 <Button x:Name="btnDeleteCategory" Content="Delete" FontSize="25" Margin="5" Click="BtnDeleteCategory_Click"/>
             </Grid>
             <Grid Grid.Column="2">
-                <Button x:Name="btnUpdateCategory" Content="Update" FontSize="25" Margin="5" Click="btnUpdateCategory_Click"/>
+                <Button x:Name="btnUpdateCategory" Content="Update" FontSize="25" Margin="5" Click="BtnUpdateCategory_Click"/>
             </Grid>
             <Grid Grid.Column="3">
                 <Button x:Name="btnRefreshCategory" Content="Refresh" FontSize="25" Margin="5" Click="BtnRefreshCategory_Click"/>
@@ -52,15 +52,15 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btnAddProduct" Content="Add" FontSize="25" Margin="5" Click="btnAddProduct_Click"/>
+            <Button x:Name="btnAddProduct" Content="Add" FontSize="25" Margin="5" Click="BtnAddProduct_Click"/>
             <Grid Grid.Column="1">
-                <Button x:Name="btnDeleteProduct" Content="Delete" FontSize="25" Margin="5" Click="btnDeleteProduct_Click"/>
+                <Button x:Name="btnDeleteProduct" Content="Delete" FontSize="25" Margin="5" Click="BtnDeleteProduct_Click"/>
             </Grid>
             <Grid Grid.Column="2">
-                <Button x:Name="btnUpdateProduct" Content="Update" FontSize="25" Margin="5" Click="btnUpdateProduct_Click"/>
+                <Button x:Name="btnUpdateProduct" Content="Update" FontSize="25" Margin="5" Click="BtnUpdateProduct_Click"/>
             </Grid>
             <Grid Grid.Column="3">
-                <Button x:Name="btnRefreshProduct" Content="Refresh" FontSize="25" Margin="5" Click="btnRefreshProduct_Click"/>
+                <Button x:Name="btnRefreshProduct" Content="Refresh" FontSize="25" Margin="5" Click="BtnRefreshProduct_Click"/>
             </Grid>
         </Grid>
     </Grid>

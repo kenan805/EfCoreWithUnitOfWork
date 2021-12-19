@@ -32,17 +32,7 @@ namespace EfCoreWithUnitOfWork
         {
             InitializeComponent();
             _unitOfWork = new UnitOfWork(new ProductContext());
-            ////_unitOfWork.CategoryRepository.GetAll().Include(c => c.Products);
-            ////var c1 = new Category() { Name = "Phone" };
-            //var c1 = _unitOfWork.CategoryRepository.GetById(1);
-            ////var p1 = new Product() { Name = "Iphone 12 Pro", UnitPrice = 2399 };
-            //var p2 = new Product() { Name = "Samsung S20", UnitPrice = 3199 };
-            //c1.Products.Add(p2);
-
-            ////_unitOfWork.CategoryRepository.Add(c1);
-            //_unitOfWork.ProductRepository.Add(p2);
-            //_unitOfWork.Complete();
-            dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().ToList();
+            dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().Include(c => c.Products).ToList();
             dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
 
         }
@@ -58,8 +48,7 @@ namespace EfCoreWithUnitOfWork
 
         private void BtnRefreshCategory_Click(object sender, RoutedEventArgs e)
         {
-            dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().ToList();
-            //dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().ToList().Select(c => new { c.Name });
+            dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().Include(c => c.Products).ToList();
         }
 
         private void BtnDeleteCategory_Click(object sender, RoutedEventArgs e)
@@ -74,7 +63,7 @@ namespace EfCoreWithUnitOfWork
                 MessageBox.Show("Error!");
         }
 
-        private void btnUpdateCategory_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdateCategory_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridCategory.SelectedIndex != -1)
             {
@@ -91,7 +80,7 @@ namespace EfCoreWithUnitOfWork
                 MessageBox.Show("Error!");
         }
 
-        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             ProcessWindow w2 = new ProcessWindow();
             w2.btnProd.Content = "Add";
@@ -100,12 +89,12 @@ namespace EfCoreWithUnitOfWork
             w2.ShowDialog();
         }
 
-        private void btnRefreshProduct_Click(object sender, RoutedEventArgs e)
+        private void BtnRefreshProduct_Click(object sender, RoutedEventArgs e)
         {
             dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
         }
 
-        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridProduct.SelectedIndex != -1)
             {
@@ -117,7 +106,7 @@ namespace EfCoreWithUnitOfWork
                 MessageBox.Show("Error!");
         }
 
-        private void btnUpdateProduct_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdateProduct_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridProduct.SelectedIndex != -1)
             {

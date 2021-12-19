@@ -34,7 +34,7 @@ namespace EfCoreWithUnitOfWork
             Product = new Product();
         }
 
-        private void btnCat_Click(object sender, RoutedEventArgs e)
+        private void BtnCat_Click(object sender, RoutedEventArgs e)
         {
             if (btnCat.Content.ToString() == "Add")
             {
@@ -42,7 +42,6 @@ namespace EfCoreWithUnitOfWork
                 {
                     var catName = txb_cName.Text;
                     _unitOfWork.CategoryRepository.Add(new Category() { Name = catName });
-                    _unitOfWork.Complete();
                     gridCategory.Visibility = Visibility.Hidden;
                     Close();
                 }
@@ -55,16 +54,16 @@ namespace EfCoreWithUnitOfWork
                 {
                     Category!.Name = txb_cName.Text;
                     _unitOfWork.CategoryRepository.Update(Category);
-                    _unitOfWork.Complete();
                     gridCategory.Visibility = Visibility.Hidden;
                     Close();
                 }
                 else
                     MessageBox.Show("Error!");
             }
+            _unitOfWork.Complete();
         }
 
-        private void btnProd_Click(object sender, RoutedEventArgs e)
+        private void BtnProd_Click(object sender, RoutedEventArgs e)
         {
             if (btnProd.Content.ToString() == "Add")
             {
@@ -74,7 +73,6 @@ namespace EfCoreWithUnitOfWork
                     double pPrice = double.Parse(txb_pPrice.Text);
                     int pCatId = int.Parse(txb_pCatId.Text);
                     _unitOfWork.ProductRepository.Add(new Product() { Name = pName, UnitPrice = pPrice, CategoryId = pCatId });
-                    _unitOfWork.Complete();
                     gridProduct.Visibility = Visibility.Hidden;
                     Close();
                 }
@@ -90,13 +88,13 @@ namespace EfCoreWithUnitOfWork
                     Product!.CategoryId = int.Parse(txb_pCatId.Text);
                     Product!.Category = _unitOfWork.CategoryRepository.GetAll().FirstOrDefault(c => c.Id == Product!.CategoryId);
                     _unitOfWork.ProductRepository.Update(Product);
-                    _unitOfWork.Complete();
                     gridProduct.Visibility = Visibility.Hidden;
                     Close();
                 }
                 else
                     MessageBox.Show("Error!");
             }
+            _unitOfWork.Complete();
         }
     }
 }

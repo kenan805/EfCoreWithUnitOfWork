@@ -52,12 +52,12 @@
                 <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_pCatId" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
             </Grid>
             <Grid Grid.Row="5" Grid.Column="1">
-                <Button Click="btnProd_Click" Name="btnProd" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
+                <Button Click="BtnProd_Click" Name="btnProd" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
             </Grid>
 
         </Grid>
 
-        <Grid x:Name="gridCategory" Visibility="Hidden">
+        <Grid x:Name="gridCategory" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -86,7 +86,7 @@
                 <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_cName" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="1">
-                <Button x:Name="btnCat" Click="btnCat_Click" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
+                <Button x:Name="btnCat" Click="BtnCat_Click" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
             </Grid>
 
         </Grid>
