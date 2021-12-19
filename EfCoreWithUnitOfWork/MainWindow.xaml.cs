@@ -33,7 +33,7 @@ namespace EfCoreWithUnitOfWork
             InitializeComponent();
             _unitOfWork = new UnitOfWork(new ProductContext());
             dataGridCategory.ItemsSource = _unitOfWork.CategoryRepository.GetAll().Include(c => c.Products).ToList();
-            dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
+            //dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
 
         }
 
@@ -91,7 +91,8 @@ namespace EfCoreWithUnitOfWork
 
         private void BtnRefreshProduct_Click(object sender, RoutedEventArgs e)
         {
-            dataGridProduct.ItemsSource = _unitOfWork.ProductRepository.GetAll().ToList();
+            var products = _unitOfWork.ProductRepository.Find(p => p.Category!.Name == (dataGridCategory.SelectedItem as Category)!.Name).ToList();
+            dataGridProduct.ItemsSource = products;
         }
 
         private void BtnDeleteProduct_Click(object sender, RoutedEventArgs e)
@@ -123,6 +124,12 @@ namespace EfCoreWithUnitOfWork
             }
             else
                 MessageBox.Show("Error!");
+        }
+
+        private void dataGridCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var products = _unitOfWork.ProductRepository.Find(p => p.Category!.Name == (dataGridCategory.SelectedItem as Category)!.Name).ToList();
+            dataGridProduct.ItemsSource = products;
         }
     }
 }

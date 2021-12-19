@@ -19,9 +19,9 @@
 
         <TextBlock Text="Category" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Column="1" Text="Product" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <DataGrid SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid SelectionChanged="dataGridCategory_SelectionChanged"
             Grid.Row="1" x:Name="dataGridCategory" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
-        <DataGrid SelectedItem="{Binding Product, UpdateSourceTrigger=PropertyChanged}"
+        <DataGrid
             Grid.Column="1" Grid.Row="1" x:Name="dataGridProduct" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
 
         <Grid Grid.Row="2">

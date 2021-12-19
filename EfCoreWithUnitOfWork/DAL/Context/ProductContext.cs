@@ -12,7 +12,7 @@ namespace EfCoreWithUnitOfWork.DAL.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=WIN-ML3N7I995PP;Initial Catalog=UnitOfWorkDb;User ID=sa;Password=******;");
+            optionsBuilder.UseSqlServer("Data Source=WIN-ML3N7I995PP;Initial Catalog=UnitOfWorkDb;User ID=sa;Password=asus1212;");
             base.OnConfiguring(optionsBuilder);
         }
 
