@@ -19,22 +19,28 @@
 
         <TextBlock Text="Category" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Column="1" Text="Product" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <DataGrid Grid.Row="1" x:Name="dataGridCategory" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
-        <DataGrid Grid.Column="1" Grid.Row="1" x:Name="dataGridProduct" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
+        <DataGrid SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
+            Grid.Row="1" x:Name="dataGridCategory" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
+        <DataGrid SelectedItem="{Binding Product, UpdateSourceTrigger=PropertyChanged}"
+            Grid.Column="1" Grid.Row="1" x:Name="dataGridProduct" Margin="10" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"/>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btnAddCategory" Content="Add" FontSize="30" Margin="5"/>
+            <Button x:Name="btnAddCategory" Content="Add" FontSize="25" Margin="5" Click="BtnAddCategory_Click"/>
             <Grid Grid.Column="1">
-                <Button x:Name="btnDeleteCategory" Content="Delete" FontSize="30" Margin="5"/>
+                <Button x:Name="btnDeleteCategory" Content="Delete" FontSize="25" Margin="5" Click="BtnDeleteCategory_Click"/>
             </Grid>
             <Grid Grid.Column="2">
-                <Button x:Name="btnUpdateCategory" Content="Update" FontSize="30" Margin="5"/>
+                <Button x:Name="btnUpdateCategory" Content="Update" FontSize="25" Margin="5" Click="btnUpdateCategory_Click"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button x:Name="btnRefreshCategory" Content="Refresh" FontSize="25" Margin="5" Click="BtnRefreshCategory_Click"/>
             </Grid>
         </Grid>
 
@@ -43,14 +49,18 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btnAddProduct" Content="Add" FontSize="30" Margin="5"/>
+            <Button x:Name="btnAddProduct" Content="Add" FontSize="25" Margin="5" Click="btnAddProduct_Click"/>
             <Grid Grid.Column="1">
-                <Button x:Name="btnDeleteProduct" Content="Delete" FontSize="30" Margin="5"/>
+                <Button x:Name="btnDeleteProduct" Content="Delete" FontSize="25" Margin="5" Click="btnDeleteProduct_Click"/>
             </Grid>
             <Grid Grid.Column="2">
-                <Button x:Name="btnUpdateProduct" Content="Update" FontSize="30" Margin="5"/>
+                <Button x:Name="btnUpdateProduct" Content="Update" FontSize="25" Margin="5" Click="btnUpdateProduct_Click"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button x:Name="btnRefreshProduct" Content="Refresh" FontSize="25" Margin="5" Click="btnRefreshProduct_Click"/>
             </Grid>
         </Grid>
     </Grid>

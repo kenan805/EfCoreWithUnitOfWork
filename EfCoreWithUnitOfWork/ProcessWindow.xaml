@@ -1,0 +1,94 @@
+﻿<Window x:Class="EfCoreWithUnitOfWork.ProcessWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EfCoreWithUnitOfWork"
+        mc:Ignorable="d"
+        Title="ProcessWindow" Height="380" Width="400">
+    <Grid>
+        <Grid x:Name="gridProduct" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Products" FontSize="36" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Grid Grid.Row="1">
+                <TextBlock Text="Id" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock Text="Name" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBlock Text="U.Price" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <TextBlock Text="Cat. Id" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <TextBlock  x:Name="txb_pId" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_pName" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_pPrice" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+                    <TextBlock Text=" AZN" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="1">
+                <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_pCatId" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Button Click="btnProd_Click" Name="btnProd" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="gridCategory" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Categories" FontSize="36" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Grid Grid.Row="1">
+                <TextBlock Text="Id" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock Text="Name" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <TextBlock x:Name="txb_cId" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <TextBox Width="190" Margin="5,0,0,0" x:Name="txb_cName" Text="" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Button x:Name="btnCat" Click="btnCat_Click" Content="Click" Background="LightGreen" FontSize="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Padding="5"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

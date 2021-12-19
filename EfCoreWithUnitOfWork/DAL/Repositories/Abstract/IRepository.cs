@@ -9,10 +9,11 @@ namespace EfCoreWithUnitOfWork.DAL.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> GetAll();
+        IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
         void Add(TEntity entity);
-        void Remove(int id);
+        void Remove(TEntity entity);
+        void Update(TEntity entity);
+        TEntity GetById(int Id);
     }
 }

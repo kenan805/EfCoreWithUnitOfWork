@@ -23,24 +23,29 @@ namespace EfCoreWithUnitOfWork.DAL.Repositories.Concrete
             _dbSet.Add(entity);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return _dbSet.Where(predicate);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            return _dbSet.ToList();
+            return _dbSet;
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(int Id)
         {
-            return _dbSet.Find(id);
+          return _dbSet.Find(Id) ?? throw new NullReferenceException();
         }
 
-        public void Remove(int id)
+        public void Remove(TEntity entity)
         {
-            _dbSet.Remove(GetById(id));
+            _dbSet.Remove(entity);
+        }
+
+        public void Update(TEntity entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
         }
     }
 }
